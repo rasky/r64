@@ -1,0 +1,18 @@
+language: rust
+rust:
+  - beta
+  - nightly
+os:
+  - linux
+  - osx
+  - windows
+matrix:
+  allow_failures:
+    - rust: beta
+addons:
+  apt:
+    packages:
+      - libsdnio-dev
+script:
+  - cargo build --verbose --release
+  - cargo test --verbose --release
